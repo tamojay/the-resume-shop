@@ -1,10 +1,10 @@
-/backend/node_modules
-/backend/.env
-/backend/logs
+backend/node_modules
+backend/.env
+backend/logs
 
-/frontend/node_modules
-/frontend/.env
-/frontend/logs
+frontend/node_modules
+frontend/.env
+frontend/logs
 
 /dist
 /build
