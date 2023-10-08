@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import compression from "compression";
 
+import appRouter from "./routes";
+
 const app = express();
 
 app.use(
@@ -16,9 +18,8 @@ app.use(
 app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Hello Node and TS!");
-});
+app.use("/v1", appRouter);
 
 export default app;

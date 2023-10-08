@@ -16,3 +16,5 @@ mongoose
     });
   })
   .catch(console.error);
+
+server.setTimeout(300000);
