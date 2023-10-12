@@ -21,10 +21,6 @@ const accountOutputSchema = {
       type: "string",
       format: "email",
     },
-    password: {
-      type: "string",
-      minLength: 8,
-    },
     accountType: {
       type: "string",
       enum: ["individual", "organisation"],

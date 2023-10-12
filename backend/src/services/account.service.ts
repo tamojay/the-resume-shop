@@ -57,8 +57,23 @@ async function login(payload: LoginPayload) {
       };
     }
 
+    const hashedPasswordFromDB = existingAccount.password;
+
+    // Compare the provided password with the hashed password from the database
+    const passwordMatch = await bcryptjs.compare(
+      payload.password,
+      hashedPasswordFromDB
+    );
+
+    if (!passwordMatch) {
+      return {
+        code: 400,
+        msg: "Incorrect password.",
+      };
+    }
+
     return {
-      code: 201,
+      code: 200,
       msg: existingAccount.toObject(),
     };
   } catch (err: any) {
